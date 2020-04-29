@@ -23,6 +23,11 @@ class Calculator {
 		this.currentOperand = -this.currentOperand;
 	}
 
+	findPercentage() {
+		this.currentOperand = this.currentOperand * 0.01;
+		this.resultIsShown = true;
+	}
+
 	chooseOperation(operation) {
 		if (this.currentOperand === '') {
 			return;
@@ -102,6 +107,7 @@ class Calculator {
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
+const percentButton = document.querySelector('[data-percent]');
 const clearButton = document.querySelector('[data-clear]');
 const changeSignButton = document.querySelector('[data-change-sign]');
 const lastOperandText = document.querySelector('[data-last-operand]');
@@ -139,5 +145,10 @@ clearButton.addEventListener('click', button => {
 
 changeSignButton.addEventListener('click', button => {
 	calculator.changeSign();
+	calculator.updateDisplay();
+});
+
+percentButton.addEventListener('click', button => {
+	calculator.findPercentage();
 	calculator.updateDisplay();
 });
