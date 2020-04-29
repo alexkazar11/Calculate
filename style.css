@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400&display=swap');
+
+/* Variables  */
+:root {
+	--background-color-1: #bb3b0e;
+	--background-color-2: #fa8231;
+
+	--text-button-light-color: #fff;
+	--text-button-dark-color: #CF8886;
+
+	--text-output-light-color: #eeeeee;
+	--text-output-dark-color: #eeeeee9c;
+
+	--button-border-color: #2c2a2a4b;
+
+	--output-color: #1C1C1C;
+	--button-grey-color: #bbb8b8;
+	--button-orange-color: #FF9500;
+	--button-numbers-color: #D4D4D2;
+	--button-hover-color: #eeeeee;
+}
+
+/* Global setup  */
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-image: linear-gradient(to top,
+			var(--background-color-1), var(--background-color-2));
+	color: var(--text-color);
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.calculator {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	border-radius: 1rem;
+	box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+	grid-template-columns: repeat(4, 10rem);
+	grid-template-rows: minmax(12rem, auto) repeat(5, 10rem);
+}
+
+.calculator>.btn {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	cursor: pointer;
+	font-size: 4rem;
+	border: 0.1rem solid var(--button-border-color);
+	outline: none;
+	background-color: var(--button-numbers-color);
+}
+
+.calculator>.orange {
+	background-color: var(--button-orange-color);
+	color: var(--text-button-light-color);
+}
+
+.calculator>.grey {
+	background-color: var(--button-grey-color);
+}
+
+.calculator>.btn:last-child {
+	border-bottom-right-radius: 1rem;
+}
+
+.calculator>.btn:nth-last-child(3) {
+	border-bottom-left-radius: 1rem;
+}
+
+.calculator>.btn:hover {
+	background-color: var(--button-hover-color);
+}
+
+.double {
+	grid-column: span 2;
+}
+
+.output {
+	grid-column: 1 / -1;
+	background-color: var(--output-color);
+	height: 13rem;
+	border-top-right-radius: 1rem;
+	border-top-left-radius: 1rem;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+	flex-direction: column;
+	padding: 1rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.output .last-operand {
+	color: var(--text-output-dark-color);
+	font-size: 4rem;
+}
+
+.output .current-operand {
+	color: var(--text-output-light-color);
+	font-size: 5rem;
+}
